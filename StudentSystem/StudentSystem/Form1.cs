@@ -118,14 +118,12 @@ namespace StudentSystem
                     string eda = sRow.SubItems[2].Text;
 
                     Update update = new Update(ced, nom, eda);
-                    update.Show();
-
+                    update.Show();                
                 }
                 else {
                     DialogResult dialogResult =
                         MessageBox.Show("Debe actualizar uno a la vez", "Error",
                         MessageBoxButtons.OK);
-
                 }
             }
         }
