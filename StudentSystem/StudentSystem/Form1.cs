@@ -50,7 +50,8 @@ namespace StudentSystem
                 regex.IsMatch(ced) && regex.IsMatch(eda))
             {
                 DialogResult dialogResult =
-                    MessageBox.Show("¿Desea agregar al estudiante?", "¿Seguro?", MessageBoxButtons.YesNo);
+                    MessageBox.Show("¿Desea agregar al estudiante?",
+                    "¿Seguro?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     conn.InsertStudent(ced, nom, int.Parse(eda));
@@ -63,8 +64,8 @@ namespace StudentSystem
             }
             else {
                 DialogResult dialogResult =
-                  MessageBox.Show("Verifique que los datos sean correctos", "Error",
-                  MessageBoxButtons.OK);
+                    MessageBox.Show("Verifique que los datos sean correctos", "Error",
+                    MessageBoxButtons.OK);
             }
         }
 
@@ -74,11 +75,9 @@ namespace StudentSystem
 
             if (count > 0)
             {
-                listView1.SelectedItems[0].Focused = true;
-
                 DialogResult dialogResult =
-                   MessageBox.Show("¿Desea eliminar los estudiantes seleccionados?", "¿Seguro?",
-                   MessageBoxButtons.YesNo);
+                    MessageBox.Show("¿Desea eliminar los estudiantes seleccionados?", "¿Seguro?",
+                    MessageBoxButtons.YesNo);
 
                 if (dialogResult == DialogResult.Yes)
                 {
@@ -87,12 +86,12 @@ namespace StudentSystem
                         int index = listView1.SelectedItems[0].Index;
                         ListViewItem sRow = listView1.Items[index];
                         string ced = sRow.SubItems[0].Text;
-                        string nomb = sRow.SubItems[1].Text;
+                        string nom = sRow.SubItems[1].Text;
 
                         conn.DeleteStudent(ced);
                         listView1.Items.RemoveAt(index);
 
-                        richTextBox1.Text += "Eliminando el estudiante " + nomb + "\n";
+                        richTextBox1.Text += "Eliminando el estudiante " + nom + "\n";
                         count--;
                     }
                     get_students();
@@ -100,6 +99,33 @@ namespace StudentSystem
                 else if (dialogResult == DialogResult.No)
                 {
                     //....................
+                }
+            }
+        }
+
+        private void actualizar_Click(object sender, EventArgs e)
+        {
+            int count = listView1.SelectedItems.Count;
+
+            if (count > 0)
+            {
+                if (count == 1)
+                {
+                    int index = listView1.SelectedItems[0].Index;
+                    ListViewItem sRow = listView1.Items[index];
+                    string ced = sRow.SubItems[0].Text;
+                    string nom = sRow.SubItems[1].Text;
+                    string eda = sRow.SubItems[2].Text;
+
+                    Update update = new Update(ced, nom, eda);
+                    update.Show();
+
+                }
+                else {
+                    DialogResult dialogResult =
+                        MessageBox.Show("Debe actualizar uno a la vez", "Error",
+                        MessageBoxButtons.OK);
+
                 }
             }
         }

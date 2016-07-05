@@ -42,6 +42,7 @@
             this.columnNombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnEdad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button3 = new System.Windows.Forms.Button();
+            this.actualizar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -114,7 +115,7 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(80, 406);
+            this.richTextBox1.Location = new System.Drawing.Point(65, 403);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(647, 51);
             this.richTextBox1.TabIndex = 15;
@@ -160,11 +161,22 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // actualizar
+            // 
+            this.actualizar.Location = new System.Drawing.Point(80, 331);
+            this.actualizar.Name = "actualizar";
+            this.actualizar.Size = new System.Drawing.Size(94, 36);
+            this.actualizar.TabIndex = 22;
+            this.actualizar.Text = "Actualizar";
+            this.actualizar.UseVisualStyleBackColor = true;
+            this.actualizar.Click += new System.EventHandler(this.actualizar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(788, 479);
+            this.Controls.Add(this.actualizar);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.richTextBox1);
@@ -200,6 +212,7 @@
         private System.Windows.Forms.ColumnHeader columnNombre;
         private System.Windows.Forms.ColumnHeader columnEdad;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button actualizar;
     }
 }
 
