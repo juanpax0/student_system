@@ -133,5 +133,8 @@ namespace StudentSystem
             update.button1_Click();
             get_students();
         }
+
+        private void metodo() {
+        }
     }
 }
