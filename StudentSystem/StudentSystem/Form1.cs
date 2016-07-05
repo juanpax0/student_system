@@ -15,11 +15,14 @@ namespace StudentSystem
     public partial class Form1 : Form
     {
 
-        Connection conn = new Connection();
+        private Connection conn = new Connection();
+        private Update update;
+        private static Regex regex = new Regex("^[0-9]+$");
 
         public Form1()
         {
             InitializeComponent();
+            update = new Update(conn);
             get_students();
         }
 
@@ -44,7 +47,6 @@ namespace StudentSystem
             string ced = textBox1.Text.Replace(" ", "");
             string nom = Regex.Replace(textBox2.Text.Trim().ToUpper(), @"\s+", " ");
             string eda = textBox3.Text.Replace(" ", "");
-            Regex regex = new Regex("^[0-9]+$");
 
             if (!ced.Equals("") && !nom.Equals("") && !eda.Equals("") &&
                 regex.IsMatch(ced) && regex.IsMatch(eda))
@@ -52,6 +54,7 @@ namespace StudentSystem
                 DialogResult dialogResult =
                     MessageBox.Show("¿Desea agregar al estudiante?",
                     "¿Seguro?", MessageBoxButtons.YesNo);
+
                 if (dialogResult == DialogResult.Yes)
                 {
                     conn.InsertStudent(ced, nom, int.Parse(eda));
@@ -96,10 +99,6 @@ namespace StudentSystem
                     }
                     get_students();
                 }
-                else if (dialogResult == DialogResult.No)
-                {
-                    //....................
-                }
             }
         }
 
@@ -117,8 +116,9 @@ namespace StudentSystem
                     string nom = sRow.SubItems[1].Text;
                     string eda = sRow.SubItems[2].Text;
 
-                    Update update = new Update(ced, nom, eda);
-                    update.Show();                
+                    update.setComponents(ced, nom, eda);
+                    update.Show();
+                    update.button1.Click += new EventHandler(this.update_method);
                 }
                 else {
                     DialogResult dialogResult =
@@ -126,6 +126,12 @@ namespace StudentSystem
                         MessageBoxButtons.OK);
                 }
             }
+        }
+
+        private void update_method(object sender, EventArgs e)
+        {
+            update.button1_Click();
+            get_students();
         }
     }
 }

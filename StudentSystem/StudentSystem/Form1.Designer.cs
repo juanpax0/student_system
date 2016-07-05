@@ -153,17 +153,17 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(80, 280);
+            this.button3.Location = new System.Drawing.Point(25, 293);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 35);
             this.button3.TabIndex = 20;
-            this.button3.Text = "Delete";
+            this.button3.Text = "Borrar";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // actualizar
             // 
-            this.actualizar.Location = new System.Drawing.Point(80, 331);
+            this.actualizar.Location = new System.Drawing.Point(144, 292);
             this.actualizar.Name = "actualizar";
             this.actualizar.Size = new System.Drawing.Size(94, 36);
             this.actualizar.TabIndex = 22;

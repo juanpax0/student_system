@@ -69,13 +69,14 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(106, 197);
+            this.button1.Location = new System.Drawing.Point(99, 187);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(82, 31);
             this.button1.TabIndex = 7;
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // no tiene EventHandler aqui, ya que lo va a tener el form principal (form1)
+            //this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Update
             // 
@@ -101,6 +102,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        // cambie este boton a public para poder accederlo desde el form principal
+        public System.Windows.Forms.Button button1;
     }
 }

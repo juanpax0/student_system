@@ -103,5 +103,14 @@ namespace StudentSystem
             cmd.ExecuteNonQuery();
             dbConn.Close();
         }
+
+        public void UpdateStudent(string cedula, string nombre, int edad) {
+            string query = string.Format("call update_student ('{0}', '{1}', {2})", cedula, nombre, edad);
+            MySqlCommand cmd = new MySqlCommand(query, dbConn);
+
+            dbConn.Open();
+            cmd.ExecuteNonQuery();
+            dbConn.Close();
+        }
     }
 }
