@@ -80,17 +80,7 @@ namespace StudentSystem
             MySqlCommand cmd = new MySqlCommand(query, dbConn);
 
             dbConn.Open();
-            try
-            {
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-                DialogResult dialogResult =
-                MessageBox.Show("Ocurrio un error. " +
-                "Verifique que el estudiante no haya sido registrado con anterioridad",
-                "Error", MessageBoxButtons.OK);
-            }
+            cmd.ExecuteNonQuery();
             dbConn.Close();
         }
 
@@ -104,7 +94,8 @@ namespace StudentSystem
             dbConn.Close();
         }
 
-        public void UpdateStudent(string cedula, string nombre, int edad) {
+        public void UpdateStudent(string cedula, string nombre, int edad)
+        {
             string query = string.Format("call update_student ('{0}', '{1}', {2})", cedula, nombre, edad);
             MySqlCommand cmd = new MySqlCommand(query, dbConn);
 
