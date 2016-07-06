@@ -1,4 +1,6 @@
-﻿namespace StudentSystem
+﻿using System.Windows.Forms;
+
+namespace StudentSystem
 {
     partial class Form1
     {
@@ -28,6 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -41,8 +44,10 @@
             this.columnCedula = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnNombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnEdad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button3 = new System.Windows.Forms.Button();
-            this.actualizar = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -127,6 +132,7 @@
             this.columnCedula,
             this.columnNombre,
             this.columnEdad});
+            this.listView1.ContextMenuStrip = this.contextMenuStrip1;
             this.listView1.ForeColor = System.Drawing.Color.Black;
             this.listView1.FullRowSelect = true;
             this.listView1.HideSelection = false;
@@ -151,33 +157,33 @@
             // 
             this.columnEdad.Text = "Edad";
             // 
-            // button3
+            // contextMenuStrip1
             // 
-            this.button3.Location = new System.Drawing.Point(25, 293);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 35);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "Borrar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(118, 48);
             // 
-            // actualizar
+            // toolStripMenuItem1
             // 
-            this.actualizar.Location = new System.Drawing.Point(144, 292);
-            this.actualizar.Name = "actualizar";
-            this.actualizar.Size = new System.Drawing.Size(94, 36);
-            this.actualizar.TabIndex = 22;
-            this.actualizar.Text = "Actualizar";
-            this.actualizar.UseVisualStyleBackColor = true;
-            this.actualizar.Click += new System.EventHandler(this.actualizar_Click);
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(117, 22);
+            this.toolStripMenuItem1.Text = "Editar";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem2.Text = "Eliminar";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(788, 479);
-            this.Controls.Add(this.actualizar);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.textBox2);
@@ -190,10 +196,10 @@
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Administracion de estudiantes";
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
@@ -211,8 +217,9 @@
         private System.Windows.Forms.ColumnHeader columnCedula;
         private System.Windows.Forms.ColumnHeader columnNombre;
         private System.Windows.Forms.ColumnHeader columnEdad;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button actualizar;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem toolStripMenuItem2;
     }
 }
 

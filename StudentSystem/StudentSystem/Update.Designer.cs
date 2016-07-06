@@ -75,8 +75,6 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
-            // no tiene EventHandler aqui, ya que lo va a tener el form principal (form1)
-            //this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Update
             // 
@@ -90,7 +88,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Update";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UpdateForm";
+            this.Text = "Actualizar estudiante";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,7 +100,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        // cambie este boton a public para poder accederlo desde el form principal
+        // cambie este boton a public para poder accederlo desde el form principal (form 1)
         public System.Windows.Forms.Button button1;
     }
 }

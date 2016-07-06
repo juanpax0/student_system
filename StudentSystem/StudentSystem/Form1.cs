@@ -15,14 +15,14 @@ namespace StudentSystem
     public partial class Form1 : Form
     {
 
-        private Connection conn = new Connection();
-        private Update update;
+        private static Connection conn = new Connection();
+        private static Update update = new Update(conn);
         private static Regex regex = new Regex("^[0-9]+$");
 
         public Form1()
         {
             InitializeComponent();
-            update = new Update(conn);
+            update.button1.Click += new EventHandler(this.update_method);
             get_students();
         }
 
@@ -57,22 +57,59 @@ namespace StudentSystem
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    conn.InsertStudent(ced, nom, int.Parse(eda));
-                    get_students();
-                }
-                else if (dialogResult == DialogResult.No)
-                {
-                    //....................
+                    try
+                    {
+                        conn.InsertStudent(ced, nom, int.Parse(eda));
+                        get_students();
+                    }
+                    catch (Exception ex)
+                    {
+                        DialogResult dialogError = MessageBox.Show("Verifique que el estudiante no se encuentre previamente registrado",
+                            "Ocurrio un error", MessageBoxButtons.OK);
+                    }
                 }
             }
             else {
                 DialogResult dialogResult =
-                    MessageBox.Show("Verifique que los datos sean correctos", "Error",
+                    MessageBox.Show("Verifique que los datos sean correctos",
+                    "Ocurrio un error",
                     MessageBoxButtons.OK);
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void update_method(object sender, EventArgs e)
+        {
+            update.button1_Click();
+            get_students();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            int count = listView1.SelectedItems.Count;
+
+            if (count > 0)
+            {
+                if (count == 1)
+                {
+                    int index = listView1.SelectedItems[0].Index;
+                    ListViewItem sRow = listView1.Items[index];
+                    string ced = sRow.SubItems[0].Text;
+                    string nom = sRow.SubItems[1].Text;
+                    string eda = sRow.SubItems[2].Text;
+
+                    update.setComponents(ced, nom, eda);
+                    update.ShowDialog();
+                }
+                else {
+                    DialogResult dialogResult =
+                        MessageBox.Show("Debe actualizar uno a la vez",
+                        "Ocurrio un error",
+                        MessageBoxButtons.OK);
+                }
+            }
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             int count = listView1.SelectedItems.Count;
 
@@ -100,41 +137,6 @@ namespace StudentSystem
                     get_students();
                 }
             }
-        }
-
-        private void actualizar_Click(object sender, EventArgs e)
-        {
-            int count = listView1.SelectedItems.Count;
-
-            if (count > 0)
-            {
-                if (count == 1)
-                {
-                    int index = listView1.SelectedItems[0].Index;
-                    ListViewItem sRow = listView1.Items[index];
-                    string ced = sRow.SubItems[0].Text;
-                    string nom = sRow.SubItems[1].Text;
-                    string eda = sRow.SubItems[2].Text;
-
-                    update.setComponents(ced, nom, eda);
-                    update.Show();
-                    update.button1.Click += new EventHandler(this.update_method);
-                }
-                else {
-                    DialogResult dialogResult =
-                        MessageBox.Show("Debe actualizar uno a la vez", "Error",
-                        MessageBoxButtons.OK);
-                }
-            }
-        }
-
-        private void update_method(object sender, EventArgs e)
-        {
-            update.button1_Click();
-            get_students();
-        }
-
-        private void metodo() {
         }
     }
 }
