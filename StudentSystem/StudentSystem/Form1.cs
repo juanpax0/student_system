@@ -138,5 +138,10 @@ namespace StudentSystem
                 }
             }
         }
+        public void metodo()
+        {
+            Console.WriteLine("blablablabla");
+        }
+
     }
 }
