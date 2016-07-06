@@ -22,3 +22,11 @@ C:\Users\Pablo\Documents\Visual Studio 2015\Projects\student_system\StudentSyste
 C:\Users\Pablo\Desktop\student_system\StudentSystem\StudentSystem\bin\Debug\StudentSystem.exe.config
 C:\Users\Pablo\Desktop\student_system\StudentSystem\StudentSystem\obj\Debug\StudentSystem.exe
 C:\Users\Pablo\Desktop\student_system\StudentSystem\StudentSystem\obj\Debug\StudentSystem.pdb
+C:\Users\Pablo\Desktop\student_system\StudentSystem\StudentSystem\bin\Debug\StudentSystem.exe
+C:\Users\Pablo\Desktop\student_system\StudentSystem\StudentSystem\bin\Debug\StudentSystem.pdb
+C:\Users\Pablo\Desktop\student_system\StudentSystem\StudentSystem\bin\Debug\MySql.Data.dll
+C:\Users\Pablo\Desktop\student_system\StudentSystem\StudentSystem\obj\Debug\StudentSystem.csprojResolveAssemblyReference.cache
+C:\Users\Pablo\Desktop\student_system\StudentSystem\StudentSystem\obj\Debug\StudentSystem.Form1.resources
+C:\Users\Pablo\Desktop\student_system\StudentSystem\StudentSystem\obj\Debug\StudentSystem.Properties.Resources.resources
+C:\Users\Pablo\Desktop\student_system\StudentSystem\StudentSystem\obj\Debug\StudentSystem.Update.resources
+C:\Users\Pablo\Desktop\student_system\StudentSystem\StudentSystem\obj\Debug\StudentSystem.csproj.GenerateResource.Cache
