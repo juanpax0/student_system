@@ -23,6 +23,7 @@ namespace StudentSystem
         {
             InitializeComponent();
             update.button1.Click += new EventHandler(this.update_method);
+            pictureBox1.Image = Image.FromFile("imgs/search.png");
             get_students();
         }
 
@@ -65,6 +66,7 @@ namespace StudentSystem
                     }
                     catch (Exception ex)
                     {
+                        conn.close_conn();
                         DialogResult dialogError = MessageBox.Show("Verifique que el estudiante no se encuentre previamente registrado",
                             "Ocurrio un error", MessageBoxButtons.OK);
                     }

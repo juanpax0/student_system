@@ -128,5 +128,9 @@ namespace StudentSystem
 
             return users;
         }
+        public void close_conn() {
+            dbConn.Close();
+        }
+
     }
 }
