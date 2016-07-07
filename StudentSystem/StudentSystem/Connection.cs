@@ -103,5 +103,30 @@ namespace StudentSystem
             cmd.ExecuteNonQuery();
             dbConn.Close();
         }
+
+        public List<Student> SeekStudent(string nombre)
+        {
+            List<Student> users = new List<Student>();
+            string query = string.Format("call seek_student('%{0}%')", nombre);
+            MySqlCommand cmd = new MySqlCommand(query, dbConn);
+
+            dbConn.Open();
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                string ced = reader["cedula"].ToString();
+                string nom = reader["nombre"].ToString();
+                int eda = (int)reader["edad"];
+
+                Student s = new Student(ced, nom, eda);
+                users.Add(s);
+            }
+            reader.Close();
+            dbConn.Close();
+
+            return users;
+        }
     }
 }

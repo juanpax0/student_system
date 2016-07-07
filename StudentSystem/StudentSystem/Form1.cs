@@ -29,6 +29,7 @@ namespace StudentSystem
         private void get_students()
         {
             listView1.Items.Clear();
+
             List<Student> sts = conn.GetStudents();
 
             foreach (Student s in sts)
@@ -138,10 +139,29 @@ namespace StudentSystem
                 }
             }
         }
-        public void metodo()
-        {
-            Console.WriteLine("blablablabla");
-        }
 
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+
+            string nombre = textBox4.Text;
+            if (nombre.Equals(""))
+            {
+                get_students();
+            }
+            else {
+                List<Student> sts = conn.SeekStudent(nombre);
+
+                foreach (Student s in sts)
+                {
+                    string ced = s.cedula;
+                    string nom = s.nombre;
+                    string eda = s.edad.ToString();
+
+                    ListViewItem item = new ListViewItem(new[] { ced, nom, eda });
+                    listView1.Items.Add(item);
+                }
+            }
+        }
     }
 }

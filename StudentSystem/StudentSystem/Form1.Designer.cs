@@ -47,6 +47,7 @@ namespace StudentSystem
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -136,7 +137,7 @@ namespace StudentSystem
             this.listView1.ForeColor = System.Drawing.Color.Black;
             this.listView1.FullRowSelect = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(273, 75);
+            this.listView1.Location = new System.Drawing.Point(273, 100);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(419, 252);
             this.listView1.TabIndex = 18;
@@ -179,11 +180,22 @@ namespace StudentSystem
             this.toolStripMenuItem2.Text = "Eliminar";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
+            // textBox4
+            // 
+            this.textBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBox4.Location = new System.Drawing.Point(401, 74);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(237, 20);
+            this.textBox4.TabIndex = 19;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(788, 479);
+            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.textBox2);
@@ -221,6 +233,7 @@ namespace StudentSystem
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem toolStripMenuItem2;
+        private TextBox textBox4;
     }
 }
 
